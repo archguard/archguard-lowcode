@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import styles from "./App.scss";
+import styles from "./App.module.scss";
 import AttributeEditorView from "@/views/attributeEditorView/AttributeEditorView";
 import BlocksView from "@/views/blocksView/BlocksView";
 import OperationView from "@/views/operationView/OperationView";

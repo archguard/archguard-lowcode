@@ -1,6 +1,8 @@
 import { defineComponent, PropType } from "vue";
 import { BlockMetaData } from "@/types";
 
+import { ElButton } from "element-plus";
+
 interface EditorBlockProps {
   metaData: BlockMetaData;
 }
@@ -24,6 +26,7 @@ const EditorBlock = defineComponent({
           }}
         >
           {props.metaData.type}
+          <ElButton type="success">Default</ElButton>
         </div>
       );
     };
