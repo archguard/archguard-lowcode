@@ -14,7 +14,7 @@ export default defineComponent({
         <OperationView />
         <div class={styles.body}>
           <BlocksView />
-          <CoreEditorView data={testData} />
+          <CoreEditorView metaData={testData} />
           <AttributeEditorView />
         </div>
       </div>

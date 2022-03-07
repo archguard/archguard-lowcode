@@ -1,21 +1,19 @@
 import { defineComponent, PropType } from "vue";
-import { PageSchema } from "@/types";
+import { AppMetaData } from "@/types";
 import EditorBlock from "@/views/coreEditorView/components/EditorBlock";
 
 interface CoreEditorViewProps {
-  data: PageSchema;
+  metaData: AppMetaData;
 }
 
 const CoreEditorView = defineComponent({
   props: {
-    data: {
-      type: Object as PropType<CoreEditorViewProps["data"]>,
+    metaData: {
+      type: Object as PropType<CoreEditorViewProps["metaData"]>,
       required: true,
     },
   },
   setup(props) {
-    console.log("-> props", props.data);
-
     return () => {
       return (
         <div
@@ -29,9 +27,11 @@ const CoreEditorView = defineComponent({
           }}
         >
           CoreEditorView
-          {props.data.blocks.map((item) => {
-            return <EditorBlock data={item} />;
-          })}
+          <div>
+            {props.metaData.blocks.map((item) => {
+              return <EditorBlock metaData={item} />;
+            })}
+          </div>
         </div>
       );
     };

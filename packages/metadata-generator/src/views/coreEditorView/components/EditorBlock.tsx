@@ -1,14 +1,14 @@
 import { defineComponent, PropType } from "vue";
-import { BlockSchema } from "@/types";
+import { BlockMetaData } from "@/types";
 
 interface EditorBlockProps {
-  data: BlockSchema;
+  metaData: BlockMetaData;
 }
 
 const EditorBlock = defineComponent({
   props: {
-    data: {
-      type: Object as PropType<EditorBlockProps["data"]>,
+    metaData: {
+      type: Object as PropType<EditorBlockProps["metaData"]>,
       required: true,
     },
   },
@@ -17,12 +17,13 @@ const EditorBlock = defineComponent({
       return (
         <div
           style={{
-            top: `${props.data.top}px`,
-            left: `${props.data.left}px`,
-            zIndex: props.data.zIndex,
+            top: `${props.metaData.top}px`,
+            left: `${props.metaData.left}px`,
+            zIndex: props.metaData.zIndex,
+            position: "absolute",
           }}
         >
-          {props.data.type}
+          {props.metaData.type}
         </div>
       );
     };
