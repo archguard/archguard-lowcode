@@ -26,6 +26,8 @@ const createRegisterConfig = () => {
   };
 };
 
+export type RegisterConfig = ReturnType<typeof createRegisterConfig>;
+
 const registerConfig = createRegisterConfig();
 
 registerConfig.register({
