@@ -1,9 +1,14 @@
-interface Page {
-    width:number;
-    height:number;
+export interface BlockSchema {
+  top: number;
+  left: number;
+  zIndex: number;
+  type: "input" | "button";
 }
 
-interface Block {
-    width:number;
-    height:number;
+export interface PageSchema {
+  container: {
+    width: number;
+    height: number;
+  };
+  blocks: BlockSchema[];
 }
