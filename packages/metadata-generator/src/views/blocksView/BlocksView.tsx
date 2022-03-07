@@ -1,7 +1,10 @@
-import { defineComponent } from "vue";
+import { defineComponent, inject } from "vue";
+import { RegisterConfig } from "@/utils/registerBlocks";
 
 const BlocksView = defineComponent({
   setup() {
+    const config = inject("config") as RegisterConfig;
+
     return () => {
       return (
         <div
@@ -14,7 +17,24 @@ const BlocksView = defineComponent({
             bottom: 0,
           }}
         >
-          BlocksView
+          {config.blockList.map((item) => {
+            return (
+              <div
+                style={{
+                  border: "1px solid darkgray",
+                  display: "inline-flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                  margin: "10px",
+                  padding: "10px",
+                }}
+              >
+                <span>{item.label}</span>
+                {item.preview()}
+              </div>
+            );
+          })}
         </div>
       );
     };

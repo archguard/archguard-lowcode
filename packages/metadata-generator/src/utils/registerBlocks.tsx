@@ -1,5 +1,5 @@
 import { BlockType } from "@/types";
-import { ElButton } from "element-plus";
+import { ElButton, ElInput } from "element-plus";
 
 interface BlockConfig {
   type: BlockType;
@@ -9,12 +9,13 @@ interface BlockConfig {
 }
 
 const createRegisterConfig = () => {
-  const blockList = [];
+  const blockList: BlockConfig[] = [];
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const blockMap: Record<BlockType, BlockConfig> = {};
 
   return {
+    blockList,
     register(config: BlockConfig) {
       blockList.push(config);
       blockMap[config.type] = config;
@@ -40,8 +41,8 @@ registerConfig.register({
 registerConfig.register({
   label: "输入框",
   type: "input",
-  preview: () => <ElButton>preview</ElButton>,
-  render: () => <ElButton>render</ElButton>,
+  preview: () => <ElInput>preview</ElInput>,
+  render: () => <ElInput>render</ElInput>,
 });
 
 export default registerConfig;
