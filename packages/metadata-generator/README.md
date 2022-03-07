@@ -3,9 +3,12 @@ Implement the ui for user visual operation and generate user actions as metadata
 
 ## Architecture
 
-### Block
-Block is the base element that make up an app,
-user can drag and drop these built-in blocks to build an app
+## Component-block-app-relation
+- Component is the smallest unit
+- Component makes up the block, 
+- Block makes up the app
+![image info](../../assets/component-block-app-relation.png)
+
 
 ## File structure
 - src

@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from "vue";
+import { defineComponent, inject, PropType } from "vue";
 import { BlockMetaData } from "@/types";
 
 import { ElButton } from "element-plus";
@@ -15,6 +15,14 @@ const EditorBlock = defineComponent({
     },
   },
   setup(props) {
+    const config = inject("config");
+    console.log("-> config", config);
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const RenderComponent = config.use(props.metaData.type).render();
+    console.log("-> RenderComponent", RenderComponent);
+
     return () => {
       return (
         <div
@@ -25,8 +33,9 @@ const EditorBlock = defineComponent({
             position: "absolute",
           }}
         >
-          {props.metaData.type}
-          <ElButton type="success">Default</ElButton>
+          {RenderComponent}
+          {/*{use(props.metaData.type).render()}*/}
+          {/*<ElButton type="success">Default</ElButton>*/}
         </div>
       );
     };

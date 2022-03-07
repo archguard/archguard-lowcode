@@ -2,8 +2,10 @@ export interface BlockMetaData {
   top: number;
   left: number;
   zIndex: number;
-  type: "input" | "button";
+  type: BlockType;
 }
+
+export type BlockType = "input" | "button";
 
 export interface AppMetaData {
   container: {
